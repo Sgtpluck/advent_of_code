@@ -1,7 +1,5 @@
 require "pry"
 class PassportValidation
-  attr_reader :route_to_airport
-  
   def initialize(path: "./day4/input.txt")
     @passport_list = File.read(path).split("\n\n").map{ |data| ::Passport.new(data) }
   end
