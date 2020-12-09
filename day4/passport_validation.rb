@@ -1,4 +1,3 @@
-require "pry"
 class PassportValidation
   def initialize(path: "./day4/input.txt")
     @passport_list = File.read(path).split("\n\n").map{ |data| ::Passport.new(data) }
@@ -9,7 +8,7 @@ class PassportValidation
   end
 
   def run
-    @passport_list.count do |passport| 
+    @passport_list.count do |passport|
       passport.valid?
     end
   end
@@ -20,18 +19,18 @@ class Passport
 
   REQUIRED_FIELDS = %w[
     Byr
-    Iyr 
-    Eyr 
-    Hgt 
-    Hcl 
-    Ecl 
-    Pid 
+    Iyr
+    Eyr
+    Hgt
+    Hcl
+    Ecl
+    Pid
   ]
 
   def initialize(data_string)
     @fields = data_string
       .split(/\s/)
-      .map do |field_string| 
+      .map do |field_string|
         name, value = field_string.split(":")
         Object.const_get(name.capitalize).new(value)
       end
@@ -77,7 +76,7 @@ end
 class Eyr < Field
   def valid?
     valid_year?(2020, 2030)
-  end 
+  end
 end
 
 class Hgt < Field
@@ -86,7 +85,7 @@ class Hgt < Field
     false if system.nil?
 
     if system == "in"
-      digits >= 59 && digits <= 76  
+      digits >= 59 && digits <= 76
     elsif system == "cm"
        digits >= 150 && digits <= 193
     else

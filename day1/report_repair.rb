@@ -1,5 +1,4 @@
 require_relative "report_repair_input"
-require "pry"
 
 class ReportRepair
   attr_accessor :multiple, :third_num
@@ -20,7 +19,7 @@ class ReportRepair
 
   def run
     two_entries if entries == 2
-     
+
     three_entries if entries == 3
 
     multiple
@@ -37,9 +36,9 @@ class ReportRepair
     return if arr.empty?
 
     @third_num = arr.pop
-    
+
     sum_to_2020(arr.clone)
-    
+
     sum_three_to_2020(arr) if multiple.nil?
   end
 
@@ -71,10 +70,10 @@ class ReportRepair
   def try_to_sum(arr)
     arr.each do |num|
       next unless num + @current_num + @third_num == 2020
-      
+
       @multiple = num * @current_num
       @multiple = @multiple * @third_num if @third_num > 0
-    end      
+    end
   end
 
 end

@@ -1,4 +1,3 @@
-require "pry"
 class Password
   attr_reader :password_validation_list, :rules
   attr_accessor :valid_count
