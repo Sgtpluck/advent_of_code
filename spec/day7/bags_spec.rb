@@ -1,4 +1,4 @@
-require './day7/Bags'
+require './day7/bags'
 
 RSpec.describe Bags do
   describe "#bags_that_hold_my_bag" do
@@ -49,10 +49,10 @@ RSpec.describe Bag do
     let(:input) { "light red bags contain 1 bright white bag, 2 muted yellow bags." }
     it "has a type" do
       expect(Bag.new(input).type).to eq "light red"
-    end  
+    end
 
     it "has a contains hash" do
-      contains = [ 
+      contains = [
         { type: "bright white", how_many: 1},
         { type: "muted yellow", how_many: 2 }
       ]
