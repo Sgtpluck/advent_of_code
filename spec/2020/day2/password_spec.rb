@@ -2,7 +2,6 @@ require './2020/day2/password'
 
 RSpec.describe Password do
   
-
   describe "run" do
     it "outputs a number" do
       expect(Password.run(path: "./spec/2020/day2/input.txt")).to be_an(Integer)
