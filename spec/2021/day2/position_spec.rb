@@ -41,17 +41,35 @@ RSpec.describe Position do
     end
   end
 
-  xdescribe "second problem" do
+  describe "second problem" do
+    let(:test_position) { Position.new(path: test_path, simple: false)} 
+
     describe "with test input" do
-      it "returns XYZ" do
-        expect(Position.run(path: test_path)).to eq 5
+      it "returns 900" do
+        expect(Position.run(path: test_path, simple: false)).to eq 900
       end
     end
 
     describe "with real input" do
       it "returns the real answer" do
-        expect(Position.run(simple: false)).to eq 1645
+        expect(Position.run(simple: false)).to eq 1451210346
       end
     end 
+
+    describe "#depth" do
+      describe "with test input" do
+        it "returns 10" do
+          expect(test_position.depth).to eq 60
+        end
+      end
+    end
+
+    describe "distance" do
+      describe "with test input" do
+        it "returns 15" do
+          expect(test_position.distance).to eq 15
+        end
+      end
+    end
   end
 end
